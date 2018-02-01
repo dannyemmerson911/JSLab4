@@ -1,0 +1,110 @@
+body {
+	font-family: sans-serif;
+	background-color: black;
+	color: white;
+}
+
+#gameStats {
+	display: flex;
+	flex-direction: row;
+	
+	justify-content: center;
+	border: solid white 5px;
+	height: 200px;
+	margin-top: 20px;
+}
+
+#playerBox {
+	
+	width: 50%;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 25px;
+	margin-left: 20px;
+	
+
+}
+
+#grantBox {
+	
+	width: 50%;
+	height: 150px;
+	display: flex;
+	flex-direction: column; 
+	align-items: center;
+	margin-top: 25px;
+	margin-right: 50px;
+}
+
+#commandCenter {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	
+	margin-top: 30px;
+}
+
+button {
+	height: 200px;
+	width: 300px;
+	border-radius: 15%;
+	border: solid dodgerblue 5px;
+	font-size: 50px;
+}
+
+#progressLabelPlayer{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 5px;
+
+	width: 450px;
+	margin-right: 50px;
+	margin-left: 20px;
+	margin-top: 50px;
+}
+
+#playerProgress {
+	display: inline;
+
+	margin-top: 2px;
+	margin-right: 20px;
+}
+
+stretch {
+	margin-right: 10px;
+	margin-left: : 10px;
+}
+ #grantLabel {
+	margin-top: 50px;
+
+	padding: 5px;
+ }
+
+#grantHealth {
+	margin-top: 2px;
+	margin-bottom: 20px;
+	width: 200px;
+
+
+}
+
+#messageBox {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center; 
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+#startGameBox {
+	display: flex;
+	justify-content: center;
+}
+
+#restOfPage {
+	display: none;
+}
+

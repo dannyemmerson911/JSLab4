@@ -9,6 +9,9 @@
     var totalWins = document.getElementById("wins"); 
     var grantHealthBar = document.getElementById("grantHealth");
     var messageEl = document.getElementById("message");
+    var player = document.getElementById("playerName");
+    var hidePage = document.getElementById("restOfPage");
+    var command = document.getElementById("commandCenter");
 
     
     
@@ -21,8 +24,8 @@
             return Math.floor((Math.random() * 3) + 1);
         },
         heal: function(){
-            this.health += Math.floor((Math.random() * 10) + 1);
             this.healsRemaining--;
+            return Math.floor((Math.random() * 10) + 1);
         }
 
     }
@@ -36,7 +39,11 @@
     }
 
     
-  
+    startButton.onclick = function(){
+        hidePage.style.display = "block";
+        player.innerHTML = prompt("What shall I call you?");
+        startButton.style.display = "none";
+    };
   
 
     attackButton.onclick = function() {
@@ -44,34 +51,43 @@
             character.health -= character.generateAttackDamage();
             grant.health -= grant.generateAttackDamage();
             updateDisplay();
-            updateMessage(character.name + " has " + character.health + " hitpoints remaining. " + grant.name + " has " + grant.health + " hitpoints remaining.");
+            updateMessage(player.innerHTML + " has " + character.health + " hitpoints remaining. " + grant.name + " has " + grant.health + " hitpoints remaining.");
         };
         if(grant.health <= 0){
             character.wins++;
-            updateMessage(character.name + " now has " + character.wins + " wins. That's not quite 5. You need 5. Keep battling!");
+            updateMessage(player.innerHTML + " now has " + character.wins + " wins. That's not quite 5. You need 5. Keep battling!");
             grant.health = 10; 
             updateDisplay();
 
         };
         if(character.wins === 5){
-            updateMessage(character.name +" has won the battle!! Honestly...I can't believe it. The odds were realllly stacked against you. Good job.");
+            updateMessage(player.innerHTML +" has won the battle!! Hey, great job dude (or dudette). I'm proud of you.");
+            command.style.display = "none";
         };
+        if(character.health <= 0){
+            updateMessage("The Chicken of Death claims yet another poor soul!! You lose!");
+            command.style.display = "none"; 
+        }
+
 };
 
     healButton.onclick = function(){
         if(character.healsRemaining > 0){
             character.health += character.heal();
-            //character.health += character.heal();
-            updateDisplay();
-            updateMessage("It hits you right in the heals! " + character.name + " has " + healsRemaining + " heal burgers remaining.");
-        }
-        else if(character.healsRemaining === 0){
+            updateMessage("It hits you right in the heals! " + player.innerHTML + " has " + character.healsRemaining + " heal burgers remaining.");
+            updateDisplay();        
+        } else if(character.healsRemaining === 0){
             updateMessage("Nice try. You have no more heal burgers remaining. Battle on!");
         };
     };
+
+    quitButton.onclick = function(){
+        updateMessage("What are you? Chicken?! Game over");
+        command.style.display = "none";
+
+    }
     
     function updateDisplay() {
-        console.log(character.health);
         playerHealthBar.value = character.health;
         grantHealthBar.value = grant.health; 
         healBar.value = character.healsRemaining;

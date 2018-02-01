@@ -9,31 +9,49 @@
 <body>
 
 	<main>
-		<button id="startgame">START</button>
+		
+		<div id="startGameBox"/>
+			<button id="startGame">START</button>
+		</div>	
 
-		<button id="attackButton">ATTACK!</button>
-		<button id="healButton">HEAL!</button>
-		<button id="quitButton">QUIT!</button>
+		
+		<div id ="restOfPage">	
+			<div id="commandCenter">
+				<a href="#"><button id="attackButton">ATTACK!</button></a>
+				<a href="#"><button id="healButton">HEAL!</button></a>
+				<a href="#"><button id="quitButton">QUIT!</button></a>
+			</div>
+		
+			<div id="messageBox">
+				<p id="message"></p>
+			</div>
 
-		<p id="message"></p>
-
-
-		<div id="gameStats"> 
-			<h3>Player Vitals</h3>
-			<p id="playerName"></p>
-			<p>Player Health</p>
-			<progress id="playerHealth" value="40" max="40" ></progress>
-			<p>Heals Remaining</p>	
-			<progress id="healsRemaining" value="2" max="2"></progress>
-			<p>Player Wins</p>
-			<progress id="wins" value="0" max="5"></progress>
+			<div id="gameStats"> 
+				<div id="playerBox">
+					<stretch id="playerName"></stretch>
+						<div id="progressLabelPlayer">
+							<stretch>Player Health</stretch>
+							<stretch>Heals Remaining</stretch>
+							<stretch>Player Wins</stretch>
+						</div>	
+				
+					<div id="playerProgress"/>
+						<progress id="playerHealth" value="40" max="40" ></progress>
+						<progress id="healsRemaining" value="2" max="2"></progress>
+						<progress id="wins" value="0" max="5"></progress>
+					</div>	
+				
+				</div>
 			
-			<h3>Enemy Vitals</h3>
-			<p>Grant the Almighty Chicken of Death</p>
-			<p>Grant's Health</p>
-			<progress id="grantHealth" value="10" max="10"></progress>
-		</div>
 
+
+				
+				<div id="grantBox">
+					<stretch>Grant the Almighty Chicken of Death</stretch>
+					<stretch id="grantLabel">Grant's Health</stretch>
+					<progress id="grantHealth" value="10" max="10"></progress>
+				</div>
+			</div>
 
 
 
@@ -43,6 +61,9 @@
 
 
 <script type="text/javascript" src="script.js"></script>
+		</div>
+	</main>
+
 </body>
 
 
